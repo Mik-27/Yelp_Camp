@@ -22,6 +22,8 @@ const campgroundRoutes = require("./routes/campgrounds")
 
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
 
+app.locals.moment = require("moment")
+
 app.use(bodyParser.urlencoded({extended: true}))
 app.set("view engine", "ejs")
 app.use(express.static(__dirname + "/public"))

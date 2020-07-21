@@ -196,4 +196,4 @@ router.post('/reset/:token', (req, res)=> {
     })
 })
 
-export default router;
+module.exports = router;

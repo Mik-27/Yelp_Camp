@@ -98,4 +98,4 @@ router.delete("/:id", middleware.checkCampgroundAuth, (req, res)=> {
     })
 })
 
-export default router;
+module.exports= router;

@@ -75,4 +75,4 @@ router.delete("/:comment_id", middleware.checkCommentAuth, (req, res)=> {
     })
 })
 
-export default router;
+module.exports = router;
