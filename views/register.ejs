@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1 class="heading">Sign Up</h1>
+    </div>
+    <div class="col-md-12" id="register">
+        <form class="form-signin" action="/register" method="POST">
+            <div class="row name">
+                <div class="col-md-6 pl-0">
+                    <label for="inputFirstName">First Name</label>
+                    <input name="firstName" type="text" id="inputFirstName" class="form-control" placeholder="e.g. Lewis" required autofocus="">
+                </div>
+                <div class="col-md-6 pr-0">
+                    <label for="inputLastName">Last Name</label>
+                    <input name="lastName" type="text" id="inputLastName" class="form-control" placeholder="e.g. Hamilton" required autofocus="">
+                </div>
+            </div>
+            <label for="inputEmail">Email</label>
+            <input name="email" type="text" id="inputEmail" class="form-control" placeholder="e.g. lh@gmail.com" required autofocus="">
+            <label for="inputAvatar">Upload Photo</label>
+            <input name="avatar" type="text" id="inputAvatar" class="form-control" placeholder="Image URL" autofocus="">
+            <label for="inputUsername">Username</label>
+            <input name="username" type="text" id="inputUsername" class="form-control" placeholder="e.g. LewisH2271" required autofocus="">
+            <label for="inputPassword">Password</label>
+            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="password" required>
+            <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Sign in</button>
+        </form> 
+    </div>
+    <div class="col-md-12 text-center">
+        <p class="mb-1">
+            <a class="btn btn-link" href="/campgrounds">Go to Campgrounds</a>
+        </p>
+        <p class="mt-1">
+            Already have an account? <a class="btn btn-link" href="/login">Login</a>
+        </p>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

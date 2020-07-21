@@ -1,0 +1,96 @@
+<%- include("../partials/header") %>
+
+<div class="container" style="margin-top: 6.5rem;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group mb-4">
+                <li class="list-group-item active">Contact Number</li>
+                <li class="list-group-item text-break"><%= campground.contact.contactNumber %> </li>
+            </div>
+            <div class="list-group mb-4">
+                <li class="list-group-item active">Website</li>
+                <li class="list-group-item text-break"><%= campground.contact.website %> </li>
+            </div>
+            <div class="list-group mb-4">
+                <li class="list-group-item active">Location</li>
+                <li class="list-group-item text-break"><%= campground.location %></li>
+            </div>
+            <!-- MAP -->
+        </div>
+        <div class="col-md-9">
+            <div class="card mb-4" id="campgroundCard">
+                <img class="card-img-top" src="<%= campground.image %> " alt="Could not load image.">
+                <div class="card-body">
+                    <p class="float-right">
+                        ₹<%= campground.price %> 
+                    </p>
+                    <h4 class="card-title"><a><%= campground.name %></a></h4>
+                    <div class="clearflix"></div>
+                    <p class="text-muted">
+                        <em>Submitted By <%= campground.author.username %> </em>
+                    </p>
+                    <hr>
+                    <p class="card-text"><%= campground.description %> </p>
+                    <% if (currentUser && campground.author.id.equals(currentUser._id)) { %>
+                        <div class="buttons">
+                            <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-sm btn-outline-warning">Edit Campground</a>
+                            <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-outline-danger">Delete Campground</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- Comments -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="comments">Comments:</h4>
+                            <div class="text-right">                                 
+                                <a class="btn btn-sm btn-info" href="#collapseComment" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseComment">Add New Comment</a>
+                            </div>
+                                
+                            <div class="collapse mt-3" id="collapseComment">
+                                <div class="card newCommentCard">
+                                    <% if(!currentUser) { %>
+                                        <h5>You need to login to comment. <a href="/login">Click here.</a></h5> 
+                                    <% } %> 
+                                    <% if(currentUser) { %>
+                                        <h5>Write your comment</h5>
+                                        <form action="/campgrounds/<%= campground._id %>/comments" method="POST" id="add-comment-form">
+                                            <div class="form-group">
+                                                <textarea name="comment[text]" rows="5" placeholder="Write your comment here..." class="form-control m-3" form="add-comment-form"></textarea>
+                                                <button class="btn btn-success btn-sm ml-3">Comment</button>
+                                            </div>
+                                        </form>
+                                    <% } %> 
+                                </div>
+                            </div>
+                        </div>
+                        <% campground.comments.forEach(function(comment) { %>
+                            <div class="col-md-12 mb-2">
+                                <hr>
+                                <strong><%= comment.author.username %> </strong>
+                                <span class="float-right text-muted">10 days ago</span>
+                                <p class="card-text"><%= comment.text %> </p>
+                                <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                                    <div class="buttons float-right">
+                                        <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-outline-warning">Edit</a>
+                                        <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-sm btn-outline-danger">Delete</button>                                
+                                        </form>
+                                    </div>
+                                <% } %>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,220 @@
+html {
+    position: relative;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 3.5rem!important;
+    background-color: #f0ffff;
+}
+
+.navbar {
+    background-color:#079992;
+}
+
+.card {
+    padding: 0%;
+}
+
+.buttons {
+    display: inline-flex;
+}
+
+.btn-outline-warning {
+    margin-right: 10px;
+}
+
+.btn-outline-warning:hover {
+    color: white;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.more-info {
+    background-color: #079992;
+}
+
+.card-title {
+    color: #079992;
+    font-weight: 550;
+    font-size: x-large;
+    text-transform: capitalize;
+}
+
+.card-title:hover {
+    color: #00423fd8;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.heading {
+    color: rgb(74, 90, 90);
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.alignForm {
+    margin: 30px auto;
+}
+
+.row {
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#campgroundCard {
+    height: auto!important;
+}
+
+#campgroundCard img {
+    width: 100%;
+    max-height: max-content;
+    height: auto;
+}
+
+.list-group-item.active {
+    background-color: #079992;
+    border-color: #079992;
+}
+
+#inputNumber::-webkit-outer-spin-button,
+#inputNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-group label {
+    color: #407c79;
+}
+
+.comments {
+    color: #079992;
+}
+
+/* Register */
+
+.form-signin input {
+    margin-bottom: 15px;
+}
+
+.form-signin label {
+    color: #407c79;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+/* Profile */
+
+.avatar {
+    max-height: none;
+    height: 300px;
+    width: 300px;
+}
+
+/* Forgot */
+
+.forgotContainer {
+    max-width: 640px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+/* Reset */
+
+.resetContainer {
+    max-width: 640px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+/* Campgrounds Index */
+
+#elements {
+    margin-bottom: 3rem;
+}
+
+.indexCardImg {
+    width: 100%;
+    height: 200px;
+}
+
+.carousel img {
+    height: 450px;
+}
+
+.carousel {
+    border-bottom: 2px solid black;
+    margin-bottom: 50px;
+}
+
+.carouselCaption1 {
+    bottom: 200px;
+    width: 600px;
+    text-align: left;
+}
+
+.carouselCaption1 h1 {
+    font-weight: 900;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.carouselCaption2 {
+    bottom: 40px;
+}
+
+/* Campground Show */
+
+.newCommentCard {
+    background-color: lightgray;
+    border-left: 5px solid #00C851;
+}
+
+.newCommentCard h5{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-weight: lighter;
+}
+
+#add-comment-form textarea {
+    width: 95%;
+}
+
+/* Footer */
+
+footer {
+    background-color: #e7e7e7;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}

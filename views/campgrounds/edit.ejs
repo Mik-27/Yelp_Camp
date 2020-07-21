@@ -1,0 +1,46 @@
+<%- include("../partials/header") %> 
+
+<div class="conatiner">
+    <div class="row justify-content-center">
+        <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4">
+            <h1 class="heading">Edit:   <%= campground.name %></h1>
+            <div class="alignForm">
+                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label class="text-muted" for="inputName">Name:</label>
+                        <input id="inputName" class="form-control" type="text" name="campground[name]" value="<%= campground.name %> ">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-muted" for="inputPrice">Price:</label>
+                        <input id="inputPrice" class="form-control" type="number" name="campground[price]" value="<%= campground.price %> " min="1" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-muted" for="inputImage">Image URL:</label>
+                        <input id="inputImage" class="form-control" type="text" name="campground[image]" value="<%= campground.image %> ">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLocation">Location:</label>
+                        <input id="inputLocation" class="form-control" type="text" name="campground[location]" value="<%= campground.location %> ">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Contact Number:</label>
+                        <input class="form-control" id="inputNumber" type="number" name="campground[contact][contactNumber]" value="<%= campground.contact.contactNumber %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputWebsite">Website:</label>
+                        <input id="inputWebsite" class="form-control" type="text" name="campgrpund[contact][website]" value="<%= campground.contact.website %> ">
+                    <div class="form-group">
+                        <label class="text-muted" for="inputDesc">Description:</label>
+                        <textarea class="form-control" name="campground[description]" id="inputDesc" cols="30" rows="10"><%= campground.description %> </textarea>
+                    </div>                   
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Update</button>
+                    </div>
+                </form>
+                <a href="/campgrounds">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %> 

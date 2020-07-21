@@ -1,0 +1,45 @@
+<%- include("../partials/header") %> 
+
+<div class="conatiner">
+    <div class="row justify-content-center">
+        <h1 class="heading">Create New Campground</h1>
+        <div class="alignForm col-xs-10 col-sm-8 col-md-6 col-lg-4">
+            <form action="/campgrounds" method="POST">
+                <div class="form-group">
+                    <label for="inputName">Name:</label>
+                    <input id="inputName" class="form-control" type="text" name="name" placeholder="e.g. Camping Site">
+                </div>
+                <div class="form-group">
+                    <label for="inputPrice">Price:</label>
+                    <input id="inputPrice" class="form-control" type="number" name="price" placeholder="e.g. 1500" min="1" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="inputImage">Image URL:</label>
+                    <input id="inputImage" class="form-control" type="text" name="image" placeholder="e.g. http://i.imgur.com/K3mPv14.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocation">Location:</label>
+                    <input id="inputLocation" class="form-control" type="text" name="location" placeholder="e.g. Palghar, Maharashtra">
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber">Contact Number:</label>
+                    <input class="form-control" id="inputNumber" type="number" name="contactNumber" placeholder="e.g. 123456789">
+                </div>
+                <div class="form-group">
+                    <label for="inputWebsite">Website:</label>
+                    <input id="inputWebsite" class="form-control" type="text" name="website" placeholder="e.g. www.yelpcamp.com">
+                </div>
+                <div class="form-group">
+                    <label for="inputDesc">Description:</label>
+                    <textarea class="form-control" name="description" placeholder="e.g. Description of the campground highlighting the features of the stay and other amenities." cols="30" rows="10"></textarea>
+                </div>
+                <div >
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %> 
