@@ -20,8 +20,8 @@ const campgroundRoutes = require("./routes/campgrounds")
 
 // seedDB()
 
-// mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
-mongoose.connect("mongodb+srv://Mihir:" + process.env.DB_PASS + "@cluster0.cmfi2.mongodb.net/yelp_camp?retryWrites=true&w=majority", {useNewUrlParser: true, useCreateNewIndex: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+// mongoose.connect("mongodb+srv://Mihir:" + process.env.DB_PASS + "@cluster0.cmfi2.mongodb.net/yelp_camp?retryWrites=true&w=majority", {useNewUrlParser: true, useCreateNewIndex: true, useUnifiedTopology: true})
 
 app.locals.moment = require("moment")
 
