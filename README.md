@@ -15,27 +15,27 @@ These instructions will get you a copy of the project up and running on your loc
 ### Built with
 
 * Node JS for the backend.
-* Various other dependancies required are enlisted in the ''' package.json ''' file.
+* Various other dependancies required are enlisted in the ``` package.json ``` file.
 * Bootstrap cdn or locally downloaded files.
 * MongoDB shell for local database or any othe cloud applications like [Mongo Lab](https://mlab.com/) or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
 ### Downloading
 
-''' git clone https://github.com/Mik-27/Yelp_Camp.git '''
+``` git clone https://github.com/Mik-27/Yelp_Camp.git ```
 
 ### Running locally
 
 [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) can be dowloaded or can be linked using CDN.
 
-Use ''' npm ''' package manager for installing various dependancies.
+Use ``` npm ``` package manager for installing various dependancies.
 
 To run this locally you can continue using Atlas as the database or you can also created a local database by [installing MongoDB](https://www.mongodb.com/try/download/community) on your system.
 
-Create a local ''' .env ''' file to store important variables that must be confidenial.
-'''
+Create a local ``` .env ``` file to store important variables that must be confidenial.
+```
 DATABASE_URL='<url>'
 API_KEY='<key>'
-'''
+```
 
 ## Deployment
 
