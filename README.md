@@ -47,6 +47,6 @@ This application is deployed using [Heroku](https://www.heroku.com/).
 
 ## Acknowledgement
 
-[Udemy - Web Development Bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/)
-[Ian Schoonover](https://github.com/nax3t)
-[Colt Steele](https://github.com/Colt)
+* [Udemy - Web Development Bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/)
+* [Ian Schoonover](https://github.com/nax3t)
+* [Colt Steele](https://github.com/Colt)
