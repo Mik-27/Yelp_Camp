@@ -208,6 +208,10 @@ body {
     width: 95%;
 }
 
+.fa-star {
+    color: rgb(255, 217, 0);
+}
+
 /* Footer */
 
 footer {
@@ -217,4 +221,47 @@ footer {
     left: 0px;
     right: 0px;
     margin-bottom: 0px;
+}
+
+/* Comment New */
+
+fieldset, label { margin: 0; padding: 0; }
+
+.rating { 
+    border: none;
+    float: left;
+    position: absolute;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > .half:before { 
+    content: "\f089";
+    position: absolute;
+}
+
+.rating > label { 
+    color: #ddd; 
+}
+
+.rating > input:checked ~ label, 
+.rating:not(:checked) > label:hover,  
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  }
+
+.rating > input:checked + label:hover, 
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, 
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }     
+
+.rating > label{float:right}
+
+.starsGroup {
+    height: 40px;
 }

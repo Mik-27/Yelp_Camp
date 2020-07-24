@@ -50,7 +50,7 @@
                             <div class="text-right">                                 
                                 <a class="btn btn-sm btn-info" href="#collapseComment" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseComment">Add New Comment</a>
                             </div>
-                                
+                            <!-- New Comment -->
                             <div class="collapse mt-3" id="collapseComment">
                                 <div class="card newCommentCard">
                                     <% if(!currentUser) { %>
@@ -61,18 +61,48 @@
                                         <form action="/campgrounds/<%= campground._id %>/comments" method="POST" id="add-comment-form">
                                             <div class="form-group">
                                                 <textarea name="comment[text]" rows="5" placeholder="Write your comment here..." class="form-control m-3" form="add-comment-form"></textarea>
-                                                <button class="btn btn-success btn-sm ml-3">Comment</button>
                                             </div>
+                                            <div class="form-group m-3">
+                                                <label for="rating">Rating:</label>
+                                                <div class="starsGroup">
+                                                    <fieldset class="rating">
+                                                        <input class="stars" type="radio" id="star5" name="comment[rating]" value="5" />
+                                                        <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                                        <input class="stars" type="radio" id="star4" name="comment[rating]" value="4" />
+                                                        <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                                        <input class="stars" type="radio" id="star3" name="comment[rating]" value="3" />
+                                                        <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                        <input class="stars" type="radio" id="star2" name="comment[rating]" value="2" />
+                                                        <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                        <input class="stars" type="radio" id="star1" name="comment[rating]" value="1" />
+                                                        <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                            <button class="btn btn-success btn-sm ml-3">Comment</button>
                                         </form>
                                     <% } %> 
                                 </div>
                             </div>
+
                         </div>
                         <% campground.comments.forEach(function(comment) { %>
                             <div class="col-md-12 mb-2">
                                 <hr>
                                 <strong><%= comment.author.username %> </strong>
                                 <span class="float-right text-muted"><%= moment(comment.createdAt).fromNow() %> </span>
+                                
+                                <div class="mt-2">
+                                    <% for(i=0;i<5;i++) { %>
+                                        <% if(i < comment.rating) { %> 
+                                            <i class="fas fa-star"></i>
+                                        <% } else { %> 
+                                            <i class="far fa-star"></i>
+                                        <% } %> 
+                                    <% } %>  
+                                </div>
+
                                 <p class="card-text"><%= comment.text %> </p>
                                 <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
                                     <div class="buttons float-right">

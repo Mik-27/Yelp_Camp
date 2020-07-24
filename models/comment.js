@@ -9,6 +9,10 @@ var commentSchema = mongoose.Schema({
             ref: "User"
         },
         username: String
+    },
+    rating: {
+        type: Number,
+        default: 0
     }
 });
 

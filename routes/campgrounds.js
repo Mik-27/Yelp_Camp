@@ -98,4 +98,4 @@ router.delete("/:id", middleware.checkCampgroundAuth, (req, res)=> {
     })
 })
 
-module.exports= router;
+module.exports = router;
