@@ -46,8 +46,13 @@ router.get("/login",  (req, res)=> {
 
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/campgrounds",
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash: true,
+    successFlash: "Welcome back to YelpCamp!" 
 }),  (req, res)=> {
+    if(err) {
+        req.flash("error", "Username or Password not valid.")
+    }
 });
 
 router.get("/logout",  (req, res)=> {

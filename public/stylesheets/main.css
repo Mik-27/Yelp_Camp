@@ -265,3 +265,20 @@ fieldset, label { margin: 0; padding: 0; }
 .starsGroup {
     height: 40px;
 }
+
+/* Header */
+
+.alert {
+    transition: 0.5s;
+    position: absolute;
+    z-index: 999999;
+    width: 73%;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* Login Page */
+
+.loginPage {
+    margin-bottom: 8.5rem;
+}
