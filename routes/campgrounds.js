@@ -9,11 +9,19 @@ const express = require("express")
 // =====================
 
 router.get("/", (req, res)=> {
-    Campground.find({}, (err, campgrounds)=> {
+    Campground.find({}).populate("comments", "rating").exec( (err, campgrounds)=> {
         if(err) {
             req.flash("error", "Could not load campgrounds. Try Again.")
             console.log(err);
         } else {
+            // Average Campground rating
+            campgrounds.forEach(campground => {
+                var totalRating = 0
+                campground.comments.forEach(comment => {
+                    totalRating = totalRating + comment.rating
+                })
+                campground.rating = Math.floor(totalRating / campground.comments.length)
+            });
             res.render("campgrounds/index", {campgrounds: campgrounds, currentUser: req.user, page: "campgrounds"});
         }
     })

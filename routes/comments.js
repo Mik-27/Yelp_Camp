@@ -23,6 +23,8 @@ router.post("/", middleware.isLoggedIn, (req, res)=> {
                     comment.author.username = req.user.username
                     comment.save()
                     campground.comments.push(comment)
+                    // Calculate average campground rating
+                    campground.rating = calcAvgRating(campground.comments)
                     campground.save()
                     req.flash("success", "Comment added successfully.")
                     res.redirect("/campgrounds/" + campground._id)
@@ -74,5 +76,17 @@ router.delete("/:comment_id", middleware.checkCommentAuth, (req, res)=> {
         }
     })
 })
+
+// Calculate average rating
+function calcAvgRating(comments) {
+    if (comments.length === 0) {
+        return 0;
+    }
+    var sum = 0;
+    comments.forEach(function (element) {
+        sum += element.rating;
+    });
+    return sum / reviews.length;
+}
 
 module.exports = router;

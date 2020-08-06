@@ -9,14 +9,14 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://hipcamp-res.cloudinary.com/images/c_fill,f_auto,g_auto,h_630,q_60,w_1200/v1445554940/campground-photos/yepexlowon0q4itykwm7/tir-na-n-og-farm-tir-na-nog-farm-camp-tent-forest-stars.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block float-left carouselCaption1">
+        <div class="carousel-caption float-left carouselCaption1">
           <h1>Welcome to YelpCamp</h1>
           <p class="pl-2">Browse through a wide range of campgrounds.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block carouselCaption2">
+        <div class="carousel-caption carouselCaption2">
           <h5>New Campground</h5>
           <p>If you are an organizer for camp, post your campgrounds on YelpCamp to better connect with interested people.</p>
           <a href="/campgrounds/new" class="btn btn-outline-light">Add Campground</a>
@@ -24,7 +24,7 @@
       </div>
       <div class="carousel-item">
         <img src="https://images.unsplash.com/photo-1477512076069-d31eb021716f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block carouselCaption3">
+        <div class="carousel-caption carouselCaption3">
           <h5>Campgrounds</h5>
           <p>YelpCamp provides a wide range of camping sites from all over India along with the reviews of visited individuals.</p>
           
@@ -58,7 +58,19 @@
                 <div class="card shadow bg-white rounded">
                     <img src="<%= campground.image %>" class="indexCardImg card-img-top" alt="Could not load Image">
                     <div class="card-body">
-                      <a href="/campgrounds/<%=campground._id%>" class="card-title"><%= campground.name %></a>
+                      <div class="cardHeading d-xl-flex d-block">
+                        <a href="/campgrounds/<%=campground._id%>" class="card-title"><%= campground.name %></a>
+                        <!-- Campground Rating -->
+                        <div class="mb-2 ml-2">
+                          <% for(i=0;i<5;i++) { %>
+                              <% if(i < campground.rating) { %> 
+                                  <i class="fas fa-star"></i>
+                              <% } else { %> 
+                                  <i class="far fa-star"></i>
+                              <% } %> 
+                          <% } %>  
+                        </div>
+                      </div>
                       <p class="card-text text-wrap"><%- campground.description.substring(0, 50) %>... </p>
                     </div>
                 </div>

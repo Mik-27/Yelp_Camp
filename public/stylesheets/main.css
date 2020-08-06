@@ -166,6 +166,15 @@ body {
     height: 200px;
 }
 
+.cardHeading {
+    display: flex;
+}
+
+.card-title {
+    width: 60%;
+    max-width: 179px;
+}
+
 .carousel img {
     height: 450px;
 }
@@ -176,8 +185,8 @@ body {
 }
 
 .carouselCaption1 {
-    bottom: 200px;
-    width: 600px;
+    bottom: 35%;
+    width: 70%;
     text-align: left;
 }
 
