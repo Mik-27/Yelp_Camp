@@ -62,7 +62,7 @@ router.get("/new", middleware.isLoggedIn, (req, res)=> {
 });
 
 router.get("/:id", (req, res)=> {
-    Campground.findById(req.params.id).populate("comments").exec((err, foundCampground)=> {
+    Campground.findById(req.params.id).populate("comments likes").exec((err, foundCampground)=> {
         if(err || !foundCampground) {
             req.flash("error", "Cannot find campground.")
             console.log(err)
@@ -103,6 +103,35 @@ router.delete("/:id", middleware.checkCampgroundAuth, (req, res)=> {
             req.flash("success", "Campground deleted successfully.")
             res.redirect("/campgrounds")
         }
+    })
+})
+
+// Like Route
+router.post("/:id/like", middleware.isLoggedIn, (req, res)=> {
+    Campground.findById(req.params.id, (err, foundCampground)=> {
+        if(err) {
+            req.flash("error", "Could not add like to campground")
+            return res.redirect("back")
+        }
+        // Check if the user has already liked
+        var userLike = foundCampground.likes.some(like=> {
+            return like.equals(req.user._id)
+        })
+        if(userLike) {
+            // Removing like if liked already.
+            foundCampground.likes.pull(req.user._id);
+        } else {
+            // Adding user to the likes list.
+            foundCampground.likes.push(req.user)
+        }
+
+        foundCampground.save(err=> {
+            if(err) {
+                req.flash("error", "Could not add like to campground")
+                return res.redirect("back")
+            }
+            return res.redirect("/campgrounds/"+foundCampground._id)
+        })
     })
 })
 

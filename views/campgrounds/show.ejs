@@ -29,6 +29,28 @@
                     <p class="text-muted">
                         <em>Created By <%= campground.author.username %>&nbsp;&nbsp;•&nbsp;&nbsp;<%= moment(campground.createdAt).format('D MMM YYYY') %>  </em>
                     </p>
+                    <!-- Like button and likes array -->
+                    <div class="btn-group">
+                        <form action="/campgrounds/<%=campground._id%>/like" method="POST">
+                            
+                                <% if(currentUser && campground.likes.some(like=> { %>
+                                    <% return like.equals(currentUser._id) %>
+                                <% })) { %>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-thumbs-up"></i> (<%= campground.likes.length %>)    
+                                    </button> 
+                                <% } else { %>
+                                    <button class="btn btn-primary">
+                                        <i class="far fa-thumbs-up"></i> (<%= campground.likes.length %>)    
+                                    </button>
+                                <% } %>
+                            
+                        </form>
+                        <button class="btn btn-light" data-toggle="modal" data-target="#campgroundLikes">
+                            More Details
+                        </button>
+                    </div>
+
                     <hr>
                     <p class="card-text"><%= campground.description %> </p>
                     <% if (currentUser && campground.author.id.equals(currentUser._id)) { %>
@@ -63,6 +85,7 @@
                                                 <textarea name="comment[text]" rows="5" placeholder="Write your comment here..." class="form-control m-3" form="add-comment-form"></textarea>
                                             </div>
                                             <div class="form-group m-3">
+                                                <!-- Star Rating -->
                                                 <label for="rating">Rating:</label>
                                                 <div class="starsGroup">
                                                     <fieldset class="rating">
@@ -92,7 +115,7 @@
                                 <hr>
                                 <strong><%= comment.author.username %> </strong>
                                 <span class="float-right text-muted"><%= moment(comment.createdAt).fromNow() %> </span>
-                                
+                                <!-- Star Rating for comments -->
                                 <div class="mt-2">
                                     <% for(i=0;i<5;i++) { %>
                                         <% if(i < comment.rating) { %> 
@@ -121,6 +144,40 @@
     </div>
 </div>
 
-    
+<!-- Modal for showing likes user array -->
+<div id="campgroundLikes" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Campground likes: <%= campground.likes.length %></h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Liked by:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% campground.likes.forEach(function(like) { %>
+                        <tr>
+                            <td><span class="badge"><i class="fas fa-user"></i></span> <%= like.username %></td>
+                        </tr>
+                    <% }); %>
+                    <% if (campground.likes.length === 0) { %>
+                        <tr>
+                            <td><em>No likes yet.</em></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%- include("../partials/footer") %>
