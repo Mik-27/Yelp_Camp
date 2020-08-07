@@ -200,6 +200,10 @@ body {
     bottom: 40px;
 }
 
+.campgroundRating {
+    cursor: default;
+}
+
 /* Campground Show */
 
 .btn-light {

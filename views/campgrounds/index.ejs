@@ -61,14 +61,16 @@
                       <div class="cardHeading d-xl-flex d-block">
                         <a href="/campgrounds/<%=campground._id%>" class="card-title"><%= campground.name %></a>
                         <!-- Campground Rating -->
-                        <div class="mb-2 ml-2">
-                          <% for(i=0;i<5;i++) { %>
-                              <% if(i < campground.rating) { %> 
-                                  <i class="fas fa-star"></i>
-                              <% } else { %> 
-                                  <i class="far fa-star"></i>
-                              <% } %> 
-                          <% } %>  
+                        <div class="campgroundRating" data-toggle="tooltip" data-placement="bottom" title="<%= campground.comments.length %> reviews">
+                          <div class="mb-2 ml-2">
+                            <% for(i=0;i<5;i++) { %>
+                                <% if(i < campground.rating) { %> 
+                                    <i class="fas fa-star"></i>
+                                <% } else { %> 
+                                    <i class="far fa-star"></i>
+                                <% } %> 
+                            <% } %>  
+                          </div>
                         </div>
                       </div>
                       <p class="card-text text-wrap"><%- campground.description.substring(0, 50) %>... </p>
